@@ -1,12 +1,10 @@
 for _, obj in pairs(game:GetService("CoreGui"):GetChildren()) do
-	if obj:IsA("ScreenGui") and obj:FindFirstChild("Loader") then
-		obj:Destroy()
-	end
+    if obj:IsA("ScreenGui") and obj:FindFirstChild("Loader") then
+        obj:Destroy()
+    end
 end
 
 
-
-local http = game:GetService("HttpService")
 local loader = Instance.new("ScreenGui")
 loader.IgnoreGuiInset = false
 loader.ResetOnSpawn = false
@@ -167,8 +165,8 @@ play_image.Parent = frame
 
 local changelog_text = Instance.new("TextLabel")
 changelog_text.Font = Enum.Font.SourceSansBold
-changelog_text.Text = " [*]DevilHub\n [+]Added script loader\n [*]EntertainmentTab\n [=] The Hold All Tools function has been optimized. \n [=] Optimized Anti Exploiter.\n [=] Optimized some functions.\n [*]UI Library\n [=] Some bugs have been fixed."
- 
+changelog_text.Text = " [*]DevilHub\n [!]Updated script loader\n [*]EntertainmentTab\n [=] The Hold All Tools function has been optimized. \n [=] Optimized Anti Exploiter.\n [=] Optimized some functions\n [+]Added the FE Taser circle feature\n [+]Added the FE dick feature\n [*]UI Library\n [=] Some bugs have been fixed\n [*]Brookhaven RP\n [-]Patched things have been removed"
+
 changelog_text.TextColor3 = Color3.new(1, 1, 1)
 changelog_text.TextSize = 14
 changelog_text.TextStrokeColor3 = Color3.new(1, 1, 1)
@@ -953,733 +951,809 @@ local loader_script = Instance.new("LocalScript")
 loader_script.Name = "LoaderScript"
 loader_script.Parent = loader
 
-
+--//Modules
 
 local modules = {}
 
+--// Scripts
 
+-- PlayButtonScript
+task.spawn(
+    function()
+        local script = play_button_script
 
-
-task.spawn(function()
-	local script = play_button_script
-
-	local oldreq = require
-	local function require(target)
-		if modules[target] then
-			return modules[target]()
-		end
-		return oldreq(target)
-	end
-
-	local button = script.Parent
-	
-	button.MouseEnter:Connect(function()
-		game:GetService("TweenService"):Create(button, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(20, 20, 20)}):Play()
-	end)
-	
-	button.MouseLeave:Connect(function()
-		game:GetService("TweenService"):Create(button, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(15, 15, 15)}):Play()
-	end)
-	
-	
-	
-end)
-
-
-task.spawn(function()
-	local script = loader_script
-
-	local oldreq = require
-	local function require(target)
-		if modules[target] then
-			return modules[target]()
-		end
-		return oldreq(target)
-	end
-
-
-	local TweenService = game:GetService("TweenService")
-	
-	
-	
-
-	local frame = script.Parent.Frame
-	local devillogo1 = script.Parent.Frame.DevilLogo1
-	local devilhubtext = script.Parent.Frame.DevilHubText
-	local devillogo2 = script.Parent.Frame.DevilLogo2
-	local gamelogo = script.Parent.Frame.GameLogo
-	local gamedetectedtext = script.Parent.Frame.GameDetectedText
-	local playbutton = script.Parent.Frame.PlayButton
-	local playimage = script.Parent.Frame.PlayImage
-	local placeidtext = script.Parent.Frame.PlaceIDText
-	local devilhubtext2 = script.Parent.Frame.DevilHubText2
-	local versiontext = script.Parent.Frame.VersionText
-	local changelogtext = script.Parent.Frame.ChangelogText
-	local changelogtext2 = script.Parent.Frame.ChangelogText2
-	local statusbutton = script.Parent.Frame.StatusButton
-	local statustext = script.Parent.Frame.StatusText
-	local statusimage = script.Parent.Frame.StatusImage
-	local discordbutton = script.Parent.Frame.DiscordButton
-	local discordtext = script.Parent.Frame.DiscordText
-	local discordimage = script.Parent.Frame.DiscordImage
-	local creditbutton = script.Parent.Frame.CreditButton
-	local credittext = script.Parent.Frame.CreditText
-	local credittext2 = script.Parent.Frame.CreditText2
-	local creditimage = script.Parent.Frame.CreditImage
-	local scrollingframe = script.Parent.Frame.ScrollingFrame
-	local livetopiaroleplayimage = script.Parent.Frame.ScrollingFrame.LivetopiaRoleplayImage
-	local livetopiroleplayastatus = script.Parent.Frame.ScrollingFrame.LivetopiaRoleplayStatus
-	local livetopiroleplayastatus2 = script.Parent.Frame.ScrollingFrame.LivetopiaRoleplayStatus2
-	local brookhavenimage = script.Parent.Frame.ScrollingFrame.BrookhavenImage
-	local brookhavenstatus = script.Parent.Frame.ScrollingFrame.BrookhavenStatus
-	local brookhavenstatus2 = script.Parent.Frame.ScrollingFrame.BrookhavenStatus2
-	local berryavenueimage = script.Parent.Frame.ScrollingFrame.BerryAvenueImage
-	local berryavenuestatus = script.Parent.Frame.ScrollingFrame.BerryAvenueStatus
-	local berryavenuestatus2 = script.Parent.Frame.ScrollingFrame.BerryAvenueStatus2 
-	local redcliffcityrpimage = script.Parent.Frame.ScrollingFrame.RedcliffCityRPImage
-	local redcliffcityrpstatus = script.Parent.Frame.ScrollingFrame.RedcliffCityRPStatus
-	local redcliffcityrpstatus2 = script.Parent.Frame.ScrollingFrame.RedcliffCityRPStatus2
-	local shadow = script.Parent.Frame.ShadowHolder.Shadow
-	local statusofgames = script.Parent.Frame.StatusOfGames
-	local backbutton = script.Parent.Frame.BackButton
-	local backimage = script.Parent.Frame.BackImage
-	local backbutton2 = script.Parent.Frame.BackButton2
-	local backimage2 = script.Parent.Frame.BackImage2
-	local developerimage = script.Parent.Frame.ScrollingFrame.DeveloperImage
-	local developerimage2 = script.Parent.Frame.ScrollingFrame.DeveloperImage2
-	local developerimage3 = script.Parent.Frame.ScrollingFrame.DeveloperImage3
-	local developerimage4 = script.Parent.Frame.ScrollingFrame.DeveloperImage4
-	local developertext = script.Parent.Frame.ScrollingFrame.DeveloperText
-	local developertext2 = script.Parent.Frame.ScrollingFrame.DeveloperText2
-	local developer2text = script.Parent.Frame.ScrollingFrame.Developer2Text
-	local developer2text2 = script.Parent.Frame.ScrollingFrame.Developer2Text2
-	local developer3text = script.Parent.Frame.ScrollingFrame.Developer3Text
-	local developer3text2 = script.Parent.Frame.ScrollingFrame.Developer3Text2
-	local developer4text = script.Parent.Frame.ScrollingFrame.Developer4Text
-	local developer4text2 = script.Parent.Frame.ScrollingFrame.Developer4Text2
-	local uistroke = script.Parent.Frame.ScrollingFrame.DeveloperImage.UIStroke
-	local uistroke2 = script.Parent.Frame.ScrollingFrame.DeveloperImage2.UIStroke2
-	local uistroke3 = script.Parent.Frame.ScrollingFrame.DeveloperImage3.UIStroke3
-	local uistroke4 = script.Parent.Frame.ScrollingFrame.DeveloperImage4.UIStroke4
-	
-	
-	
-	
-
-	
-	frame = script.Parent.Frame
-	frame.Draggable = true
-	frame.Active = true
-	frame.Selectable = true
-	
-	
-	
-
-	frame.BackgroundTransparency = 1
-	devillogo1.ImageTransparency = 1
-	devilhubtext.TextTransparency = 1
-	devilhubtext2.TextTransparency = 1
-	devillogo2.ImageTransparency = 1
-	gamedetectedtext.TextTransparency = 1
-	gamelogo.ImageTransparency = 1
-	placeidtext.TextTransparency = 1
-	playbutton.BackgroundTransparency = 1
-	playimage.ImageTransparency = 1
-	versiontext.TextTransparency = 1
-	changelogtext.TextTransparency = 1
-	changelogtext2.TextTransparency = 1
-	statustext.TextTransparency = 1
-	statusbutton.BackgroundTransparency = 1
-	statusimage.ImageTransparency = 1
-	discordtext.TextTransparency = 1
-	discordbutton.BackgroundTransparency = 1
-	discordimage.ImageTransparency = 1
-	creditbutton.BackgroundTransparency = 1
-	credittext.TextTransparency = 1
-	credittext2.TextTransparency = 1
-	creditimage.ImageTransparency = 1
-	scrollingframe.BackgroundTransparency = 1
-	livetopiaroleplayimage.ImageTransparency = 1
-	livetopiroleplayastatus.TextTransparency = 1
-	livetopiroleplayastatus2.TextTransparency = 1
-	brookhavenimage.ImageTransparency = 1
-	brookhavenstatus.TextTransparency = 1
-	brookhavenstatus2.TextTransparency = 1
-	berryavenueimage.ImageTransparency = 1
-	berryavenuestatus.TextTransparency = 1
-	berryavenuestatus2.TextTransparency = 1
-	redcliffcityrpimage.ImageTransparency = 1
-	redcliffcityrpstatus.TextTransparency = 1
-	redcliffcityrpstatus2.TextTransparency = 1
-	statusofgames.TextTransparency = 1
-	backbutton.TextTransparency = 1
-	backimage.ImageTransparency = 1
-	backbutton2.TextTransparency = 1
-	backimage2.ImageTransparency = 1
-	shadow.ImageTransparency = 1
-	developerimage.ImageTransparency = 1
-	developerimage2.ImageTransparency = 1
-	developerimage3.ImageTransparency = 1
-	developerimage4.ImageTransparency = 1
-	developertext.TextTransparency = 1
-	developertext2.TextTransparency = 1
-	developer2text.TextTransparency = 1
-	developer2text2.TextTransparency = 1
-	developer3text.TextTransparency = 1
-	developer3text2.TextTransparency = 1
-	developer4text.TextTransparency = 1
-	developer4text2.TextTransparency = 1
-	uistroke.Transparency = 1
-	uistroke2.Transparency = 1
-	uistroke3.Transparency = 1
-	uistroke4.Transparency = 1
-	
-	
-	
-	
-	
- 
-	local frameTween = game:GetService("TweenService"):Create(frame, TweenInfo.new(1), {BackgroundTransparency = 0})
-	local devillogo1Tween = game:GetService("TweenService"):Create(devillogo1, TweenInfo.new(1), {ImageTransparency = 0})
-	local devilhubtextTween = game:GetService("TweenService"):Create(devilhubtext, TweenInfo.new(1), {TextTransparency = 0})
-	local devillogo2Tween = game:GetService("TweenService"):Create(devillogo2, TweenInfo.new(1), {ImageTransparency = 0})
-	local gamelogoTween = game:GetService("TweenService"):Create(gamelogo, TweenInfo.new(1), {ImageTransparency = 0})
-	local gamedetectedtextTween = game:GetService("TweenService"):Create(gamedetectedtext, TweenInfo.new(1), {TextTransparency = 0})
-	local placeidTween = game:GetService("TweenService"):Create(placeidtext, TweenInfo.new(1), {TextTransparency = 0})
-	local devilhubtext2Tween = game:GetService("TweenService"):Create(devilhubtext2, TweenInfo.new(1), {TextTransparency = 0})
-	local playbuttonTween = game:GetService("TweenService"):Create(playbutton, TweenInfo.new(1), {BackgroundTransparency = 0})
-	local playimageTween = game:GetService("TweenService"):Create(playimage, TweenInfo.new(1), {ImageTransparency = 0})
-	local versiontextTween = game:GetService("TweenService"):Create(versiontext,TweenInfo.new(1),{TextTransparency=0})
-	local changelogtextTween = game:GetService("TweenService"):Create(changelogtext,TweenInfo.new(0.2),{TextTransparency=0})
-	local changelogtext2Tween = game:GetService("TweenService"):Create(changelogtext2,TweenInfo.new(0.2),{TextTransparency=0})
-	local statustextTween = game:GetService("TweenService"):Create(statustext,TweenInfo.new(0.2),{TextTransparency=0})
-	local statusbuttonTween = game:GetService("TweenService"):Create(statusbutton,TweenInfo.new(1),{BackgroundTransparency=0})
-	local statusimageTween = game:GetService("TweenService"):Create(statusimage, TweenInfo.new(1), {ImageTransparency = 0})
-	local discordtextTween = game:GetService("TweenService"):Create(discordtext,TweenInfo.new(1),{TextTransparency=0})
-	local discordbuttonTween = game:GetService("TweenService"):Create(discordbutton,TweenInfo.new(1),{BackgroundTransparency=0})
-	local discordimageTween = game:GetService("TweenService"):Create(discordimage, TweenInfo.new(1), {ImageTransparency = 0})
-	local creditbuttonTween = game:GetService("TweenService"):Create(creditbutton,TweenInfo.new(1),{BackgroundTransparency=0})
-	local credittext2Tween = game:GetService("TweenService"):Create(credittext2,TweenInfo.new(0.2),{TextTransparency=0})
-	local credittextTween = game:GetService("TweenService"):Create(credittext,TweenInfo.new(1),{TextTransparency=0})
-	local creditimageTween = game:GetService("TweenService"):Create(creditimage, TweenInfo.new(1), {ImageTransparency = 0})
-	local scrollingframeTween = game:GetService("TweenService"):Create(scrollingframe,TweenInfo.new(0.2),{BackgroundTransparency=0})
-	local livetopiaroleplayimageTween = game:GetService("TweenService"):Create(livetopiaroleplayimage, TweenInfo.new(0.2), {ImageTransparency = 0})
-	local livetopiroleplayastatusTween = game:GetService("TweenService"):Create(livetopiroleplayastatus,TweenInfo.new(0.2),{TextTransparency=0})
-	local ivetopiastatus2Tween = game:GetService("TweenService"):Create(livetopiroleplayastatus2,TweenInfo.new(0.2),{TextTransparency=0})
-	local brookhavenimageTween = game:GetService("TweenService"):Create(brookhavenimage, TweenInfo.new(0.2), {ImageTransparency = 0})
-	local brookhavenstatusTween = game:GetService("TweenService"):Create(brookhavenstatus,TweenInfo.new(0.2),{TextTransparency=0})
-	local brookhavenstatus2Tween = game:GetService("TweenService"):Create(brookhavenstatus2,TweenInfo.new(0.2),{TextTransparency=0})
-	local berryavenueimageTween = game:GetService("TweenService"):Create(berryavenueimage, TweenInfo.new(0.2), {ImageTransparency = 0})
-	local berryavenuestatusTween = game:GetService("TweenService"):Create(berryavenuestatus,TweenInfo.new(0.2),{TextTransparency=0})
-	local berryavenuestatus2Tween = game:GetService("TweenService"):Create(berryavenuestatus2,TweenInfo.new(0.2),{TextTransparency=0})
-	local redcliffcityrpimageTween = game:GetService("TweenService"):Create(redcliffcityrpimage, TweenInfo.new(0.2), {ImageTransparency = 0})
-	local redcliffcityrpstatusTween = game:GetService("TweenService"):Create(redcliffcityrpstatus,TweenInfo.new(0.2),{TextTransparency=0})
-	local redcliffcityrpstatus2Tween = game:GetService("TweenService"):Create(redcliffcityrpstatus2,TweenInfo.new(0.2),{TextTransparency=0})
-	local shadowholderTween = game:GetService("TweenService"):Create(shadow, TweenInfo.new(1), {ImageTransparency = 0})
-	local statusofgamesTween = game:GetService("TweenService"):Create(statusofgames,TweenInfo.new(0.2),{TextTransparency=0})
-	local backbuttonTween = game:GetService("TweenService"):Create(backbutton,TweenInfo.new(0.2),{TextTransparency=0})
-	local backimageTween = game:GetService("TweenService"):Create(backimage, TweenInfo.new(0.2), {ImageTransparency = 0})
-	local backbutton2Tween = game:GetService("TweenService"):Create(backbutton,TweenInfo.new(0.2),{TextTransparency=0})
-	local backimage2Tween = game:GetService("TweenService"):Create(backimage, TweenInfo.new(0.2), {ImageTransparency = 0})
-	local developerimageTween = game:GetService("TweenService"):Create(developerimage, TweenInfo.new(0.2), {ImageTransparency = 0})
-	local developerimage2Tween = game:GetService("TweenService"):Create(developerimage2, TweenInfo.new(0.2), {ImageTransparency = 0})		 
-	local developerimage3Tween = game:GetService("TweenService"):Create(developerimage3, TweenInfo.new(0.2), {ImageTransparency = 0})
-	local developerimage4Tween = game:GetService("TweenService"):Create(developerimage4, TweenInfo.new(0.2), {ImageTransparency = 0})
-	local developertextTween = game:GetService("TweenService"):Create(developertext,TweenInfo.new(0.2),{TextTransparency=0})
-	local developertext2Tween = game:GetService("TweenService"):Create(developertext2,TweenInfo.new(0.2),{TextTransparency=0})
-	local developer2textTween = game:GetService("TweenService"):Create(developer2text,TweenInfo.new(0.2),{TextTransparency=0})
-	local developer2text2Tween = game:GetService("TweenService"):Create(developer2text2,TweenInfo.new(0.2),{TextTransparency=0})
-	local developer3textTween = game:GetService("TweenService"):Create(developer3text,TweenInfo.new(0.2),{TextTransparency=0})
-	local developer3text2Tween = game:GetService("TweenService"):Create(developer3text2,TweenInfo.new(0.2),{TextTransparency=0})
-	local developer4textTween = game:GetService("TweenService"):Create(developer4text,TweenInfo.new(0.2),{TextTransparency=0})
-	local developer4text2Tween = game:GetService("TweenService"):Create(developer4text2,TweenInfo.new(0.2),{TextTransparency=0})
-	local uistrokeTween = game:GetService("TweenService"):Create(uistroke,TweenInfo.new(0.2),{Transparency=0})
-	local uistroke2Tween = game:GetService("TweenService"):Create(uistroke2,TweenInfo.new(0.2),{Transparency=0})
-	local uistroke3Tween = game:GetService("TweenService"):Create(uistroke3,TweenInfo.new(0.2),{Transparency=0})
-	local uistroke4Tween = game:GetService("TweenService"):Create(uistroke4,TweenInfo.new(0.2),{Transparency=0})
-	
-	
-
-	frameTween:Play()
-	shadowholderTween:Play()
-	wait(0.7)
-	
-	devillogo1Tween:Play()
-	wait(1.5)
-	
-	devilhubtextTween:Play()
-	
-	
-
-	local hideframeTween = game:GetService("TweenService"):Create(frame, TweenInfo.new(1), {BackgroundTransparency = 1})
-	local hidedevillogo1Tween = game:GetService("TweenService"):Create(devillogo1, TweenInfo.new(1), {ImageTransparency = 1})
-	local hidedevilhubtextTween = game:GetService("TweenService"):Create(devilhubtext, TweenInfo.new(1), {TextTransparency = 1})
-	local hidedevillogo2Tween = game:GetService("TweenService"):Create(devillogo2, TweenInfo.new(1), {ImageTransparency = 1})
-	local hidegamelogoTween = game:GetService("TweenService"):Create(gamelogo, TweenInfo.new(1), {ImageTransparency = 1})
-	local hidegamedetectedtextTween = game:GetService("TweenService"):Create(gamedetectedtext, TweenInfo.new(1), {TextTransparency = 1})
-	local hideplaceidTween = game:GetService("TweenService"):Create(placeidtext, TweenInfo.new(1), {TextTransparency = 1})
-	local hidedevilhubtext2Tween = game:GetService("TweenService"):Create(devilhubtext2,TweenInfo.new(1),{TextTransparency=1})
-	local hideplaybuttonTween = game:GetService("TweenService"):Create(playbutton,TweenInfo.new(1),{BackgroundTransparency=1})
-	local hideplayimageTween = game:GetService("TweenService"):Create(playimage,TweenInfo.new(1),{ImageTransparency=1})
-	local hideversiontextTween = game:GetService("TweenService"):Create(versiontext,TweenInfo.new(1),{TextTransparency=1})
-	local hidechangelogTween = game:GetService("TweenService"):Create(changelogtext,TweenInfo.new(0.2),{TextTransparency=1})
-	local hidechangelogtext2Tween = game:GetService("TweenService"):Create(changelogtext2,TweenInfo.new(0.2),{TextTransparency=1})
-	local hidestatustextTween = game:GetService("TweenService"):Create(statustext,TweenInfo.new(0.2),{TextTransparency=1})
-	local hidestatusbuttonTween = game:GetService("TweenService"):Create(statusbutton,TweenInfo.new(1),{BackgroundTransparency=1})
-	local hidestatusimageTween = game:GetService("TweenService"):Create(statusimage, TweenInfo.new(1), {ImageTransparency = 1})
-	local hidediscordtextTween = game:GetService("TweenService"):Create(discordtext,TweenInfo.new(1),{TextTransparency=1})
-	local hidediscordbuttonTween = game:GetService("TweenService"):Create(discordbutton,TweenInfo.new(1),{BackgroundTransparency=1})
-	local hidediscordimageTween = game:GetService("TweenService"):Create(discordimage, TweenInfo.new(1), {ImageTransparency = 1})
-	local hidecreditbuttonTween = game:GetService("TweenService"):Create(creditbutton,TweenInfo.new(1),{BackgroundTransparency=1})
-	local hidecredittextTween = game:GetService("TweenService"):Create(credittext,TweenInfo.new(1),{TextTransparency=1})
-	local hidecredittext2Tween = game:GetService("TweenService"):Create(credittext2,TweenInfo.new(0.2),{TextTransparency=1})
-	local hidecreditimageTween = game:GetService("TweenService"):Create(creditimage, TweenInfo.new(1), {ImageTransparency = 1})
-	local hidescrollingframeTween = game:GetService("TweenService"):Create(scrollingframe,TweenInfo.new(0.2),{BackgroundTransparency=1})
-	local hidelivetopiaroleplayimageTween = game:GetService("TweenService"):Create(livetopiaroleplayimage, TweenInfo.new(0.2), {ImageTransparency = 1})
-	local hidelivetopiaroleplaystatusTween = game:GetService("TweenService"):Create(livetopiroleplayastatus,TweenInfo.new(0.2),{TextTransparency=1})
-	local hidelivetopiaroleplaystatus2Tween = game:GetService("TweenService"):Create(livetopiroleplayastatus2,TweenInfo.new(0.2),{TextTransparency=1})
-	local hidebrookhavenimageTween = game:GetService("TweenService"):Create(brookhavenimage, TweenInfo.new(0.2), {ImageTransparency = 1})
-	local hidebrookhavenstatusTween = game:GetService("TweenService"):Create(brookhavenstatus,TweenInfo.new(0.2),{TextTransparency=1})
-	local hidebrookhavenstatus2Tween = game:GetService("TweenService"):Create(brookhavenstatus2,TweenInfo.new(0.2),{TextTransparency=1})
-	local hideberryavenueimageTween = game:GetService("TweenService"):Create(berryavenueimage, TweenInfo.new(0.2), {ImageTransparency = 1})
-	local hideberryavenuestatusTween = game:GetService("TweenService"):Create(berryavenuestatus,TweenInfo.new(0.2),{TextTransparency=1})
-	local hideberryavenuestatus2Tween = game:GetService("TweenService"):Create(berryavenuestatus2,TweenInfo.new(0.2),{TextTransparency=1})
-	local hideredcliffcityrpimageTween = game:GetService("TweenService"):Create(redcliffcityrpimage, TweenInfo.new(0.2), {ImageTransparency = 1})
-	local hideredcliffcityrpstatusTween = game:GetService("TweenService"):Create(redcliffcityrpstatus,TweenInfo.new(0.2),{TextTransparency=1})
-	local hideredcliffcityrpstatus2Tween = game:GetService("TweenService"):Create(redcliffcityrpstatus2,TweenInfo.new(0.2),{TextTransparency=1})
-	local hideshadowTween = game:GetService("TweenService"):Create(shadow, TweenInfo.new(1), {ImageTransparency = 1})
-	local hidestatusofgamesTween = game:GetService("TweenService"):Create(statusofgames,TweenInfo.new(0.2),{TextTransparency=1})
-	local hidebackbuttonTween = game:GetService("TweenService"):Create(backbutton,TweenInfo.new(0.2),{TextTransparency=1})
-	local hidebackimageTween = game:GetService("TweenService"):Create(backimage, TweenInfo.new(0.2), {ImageTransparency = 1})
-	local hidebackbutton2Tween = game:GetService("TweenService"):Create(backbutton,TweenInfo.new(0.2),{TextTransparency=1})
-	local hidebackimage2Tween = game:GetService("TweenService"):Create(backimage, TweenInfo.new(0.2), {ImageTransparency = 1})
-	local hidedeveloperimageTween = game:GetService("TweenService"):Create(developerimage, TweenInfo.new(0.2), {ImageTransparency = 1})
-	local hidedeveloperimage2Tween = game:GetService("TweenService"):Create(developerimage2, TweenInfo.new(0.2), {ImageTransparency = 1})		 
-	local hidedeveloperimage3Tween = game:GetService("TweenService"):Create(developerimage3, TweenInfo.new(0.2), {ImageTransparency = 1})
-	local hidedeveloperimage4Tween = game:GetService("TweenService"):Create(developerimage4, TweenInfo.new(0.2), {ImageTransparency = 1})
-	local hidedevelopertextTween = game:GetService("TweenService"):Create(developertext,TweenInfo.new(0.2),{TextTransparency=1})
-	local hidedevelopertext2Tween = game:GetService("TweenService"):Create(developertext2,TweenInfo.new(0.2),{TextTransparency=1})
-	local hidedeveloper2textTween = game:GetService("TweenService"):Create(developer2text,TweenInfo.new(0.2),{TextTransparency=1})
-	local hidedeveloper2text2Tween = game:GetService("TweenService"):Create(developer2text2,TweenInfo.new(0.2),{TextTransparency=1})
-	local hidedeveloper3textTween = game:GetService("TweenService"):Create(developer3text,TweenInfo.new(0.2),{TextTransparency=1})
-	local hidedeveloper3text2Tween = game:GetService("TweenService"):Create(developer3text2,TweenInfo.new(0.2),{TextTransparency=1})
-	local hidedeveloper4textTween = game:GetService("TweenService"):Create(developer4text,TweenInfo.new(0.2),{TextTransparency=1})
-	local hidedeveloper4text2Tween = game:GetService("TweenService"):Create(developer4text2,TweenInfo.new(0.2),{TextTransparency=1})
-	local hideuistrokeTween = game:GetService("TweenService"):Create(uistroke,TweenInfo.new(0.2),{Transparency=1})
-	local hideuistroke2Tween = game:GetService("TweenService"):Create(uistroke2,TweenInfo.new(0.2),{Transparency=1})
-	local hideuistroke3Tween = game:GetService("TweenService"):Create(uistroke3,TweenInfo.new(0.2),{Transparency=1})
-	local hideuistroke4Tween = game:GetService("TweenService"):Create(uistroke4,TweenInfo.new(0.2),{Transparency=1})
-	
-	
-	
-	
-	
-	wait(1.2)
-	
-	hidedevillogo1Tween:Play()
-	hidedevilhubtextTween:Play()
-	
-	wait(0.77)
-	
-	
-	
-	local originalSize = frame.Size 
-	local newSize = originalSize + UDim2.new(0.02, 0, 0.02, 0) 
-	local tweenInfo = TweenInfo.new(0.55, Enum.EasingStyle.Quad, Enum.EasingDirection.Out) 
-	local tween = TweenService:Create(frame, tweenInfo, {Size = newSize}) 
-	tween:Play()
-	
-	
-	wait(1.7)
-	
-
-	devillogo2Tween:Play()
-	gamelogoTween:Play()
-	gamedetectedtextTween:Play()
-	placeidTween:Play()
-	devilhubtext2Tween:Play()
-	playbuttonTween:Play()
-	playimageTween:Play()
-	versiontextTween:Play()
-	changelogtextTween:Play()
-	changelogtext2Tween:Play()
-	statustextTween:Play()
-	statusbuttonTween:Play()
-	statusimageTween:Play()
-	discordtextTween:Play()
-	discordbuttonTween:Play()
-	discordimageTween:Play()
-	creditbuttonTween:Play()
-	credittextTween:Play()
-	creditimageTween:Play()
-	
-	
-	
-	
-	playbutton.Activated:Connect(function()
-		hideplayimageTween:Play()
-		hidedevilhubtextTween:Play()
-		hidedevilhubtext2Tween:Play()
-		hidedevillogo2Tween:Play()
-		hidegamelogoTween:Play()
-		hidegamedetectedtextTween:Play()
-		hideplaybuttonTween:Play()
-		hidegamelogoTween:Play()
-		hidedevillogo1Tween:Play()
-		hideversiontextTween:Play()
-		hideplaceidTween:Play()
-		hidechangelogTween:Play()
-		hidechangelogtext2Tween:Play()
-		hidestatustextTween:Play()
-		hidestatusbuttonTween:Play()
-		hidestatusimageTween:Play()
-		hidediscordtextTween:Play()
-		hidediscordbuttonTween:Play()
-		hidediscordimageTween:Play()
-		hidecreditbuttonTween:Play()
-		hidecredittextTween:Play()
-		hidecredittext2Tween:Play()
-		hidecreditimageTween:Play()
-		hidelivetopiaroleplayimageTween:Play()
-		hidelivetopiaroleplaystatusTween:Play()
-		hidelivetopiaroleplaystatus2Tween:Play()
-		hidebrookhavenimageTween:Play()
-		hidebrookhavenstatusTween:Play()
-		hidebrookhavenstatus2Tween:Play()
-		hideberryavenueimageTween:Play()
-		hideberryavenuestatusTween:Play()
-		hideberryavenuestatus2Tween:Play()
-		hideredcliffcityrpimageTween:Play()
-		hideredcliffcityrpstatusTween:Play()
-		hideredcliffcityrpstatus2Tween:Play()
-		hidestatusofgamesTween:Play()
-		hidescrollingframeTween:Play()
-		hidebackbuttonTween:Play()
-		hidebackimageTween:Play()
-		hidebackbutton2Tween:Play()
-		hidebackimage2Tween:Play()
-		hidedeveloperimageTween:Play()
-		hidedeveloperimage2Tween:Play()	 
-		hidedeveloperimage3Tween:Play()
-		hidedeveloperimage4Tween:Play()
-		hidedevelopertextTween:Play()
-		hidedevelopertext2Tween:Play()
-		hidedeveloper2textTween:Play()
-		hidedeveloper2text2Tween:Play()
-		hidedeveloper3textTween:Play()
-		hidedeveloper3text2Tween:Play()
-		hidedeveloper4textTween:Play()
-		hidedeveloper4text2Tween:Play()
-		hideuistrokeTween:Play()
-		hideuistroke2Tween:Play()
-		hideuistroke3Tween:Play()
-		hideuistroke4Tween:Play()
-		
-		
-		
-		
-		wait(0.5)
-		
-		local tweenInfo = TweenInfo.new(0.55, Enum.EasingStyle.Quad, Enum.EasingDirection.Out) 
-		local tween = TweenService:Create(frame, tweenInfo, {Size = originalSize}) 
-		tween:Play()
-		wait(0.4)
-		devillogo1Tween:Play()
-		wait(0.87)
-		hidedevillogo1Tween:Play()
-		wait(0.87)
-		devillogo1Tween:Play()
-		wait(0.87)
-		hidedevillogo1Tween:Play()
-		wait(0.87)
-		devillogo1Tween:Play()
-		wait(0.87)
-		hidedevillogo1Tween:Play()
-		wait(1.2)
-		hideframeTween:Play()
-		hideshadowTween:Play()
-		wait(1.2)
-
-		loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/RFR-R1CH4RD/DevilHub-/main/Main.lua"))()
-	
-	  end)
-	
-	  
-	
-
-	statusbutton.Activated:Connect(function()
-		hidechangelogTween:Play()
-		hidechangelogtext2Tween:Play()
-		hidecredittext2Tween:Play()
-		hidebackbutton2Tween:Play()
-		hidebackimage2Tween:Play()
-		hidedeveloperimageTween:Play()
-		hidedeveloperimage2Tween:Play()	 
-		hidedeveloperimage3Tween:Play()
-		hidedeveloperimage4Tween:Play()
-		hidedevelopertextTween:Play()
-		hidedevelopertext2Tween:Play()
-		hidedeveloper2textTween:Play()
-		hidedeveloper2text2Tween:Play()
-		hidedeveloper3textTween:Play()
-		hidedeveloper3text2Tween:Play()
-		hidedeveloper4textTween:Play()
-		hidedeveloper4text2Tween:Play()
-		hideuistrokeTween:Play()
-		hideuistroke2Tween:Play()
-		hideuistroke3Tween:Play()
-		hideuistroke4Tween:Play()
-		scrollingframeTween:Play()
-		statusofgamesTween:Play()
-		livetopiaroleplayimageTween:Play()
-		livetopiroleplayastatusTween:Play()
-		ivetopiastatus2Tween:Play()
-		brookhavenimageTween:Play()
-		brookhavenstatusTween:Play()
-		brookhavenstatus2Tween:Play()
-		berryavenueimageTween:Play()
-		berryavenuestatusTween:Play()
-		berryavenuestatus2Tween:Play()
-		redcliffcityrpimageTween:Play()
-		redcliffcityrpstatusTween:Play()
-		redcliffcityrpstatus2Tween:Play()
-		backbuttonTween:Play()
-		backimageTween:Play()
-	end)
-	
-	
-	
-
-	statustext.Visible = false
-	
-	
-	
-	
-	statusbutton.MouseEnter:Connect(function()
-		
-		local fadeInTween = TweenService:Create(statustext, TweenInfo.new(0.2), {TextTransparency = 0})
-		fadeInTween:Play()
-	
-		
-		statustext.Visible = true
-	end)
-	
-	
-	statusbutton.MouseLeave:Connect(function()
-		
-		local fadeOutTween = TweenService:Create(statustext, TweenInfo.new(0.2), {TextTransparency = 1})
-		fadeOutTween:Play()
-	
-		
-		fadeOutTween.Completed:Connect(function()
-			statustext.Visible = false
-		end)
-	end)
-	
-	
-	
-
-	discordtext.Visible = false
-	
-	
-	
-	discordbutton.MouseEnter:Connect(function()
-	
-		local fadeInTween = TweenService:Create(discordtext, TweenInfo.new(0.2), {TextTransparency = 0})
-		fadeInTween:Play()
-	
-	
-		discordtext.Visible = true
-	end)
-	
-	
-	discordbutton.MouseLeave:Connect(function()
-	
-		local fadeOutTween = TweenService:Create(discordtext, TweenInfo.new(0.2), {TextTransparency = 1})
-		fadeOutTween:Play()
-	
-	
-		fadeOutTween.Completed:Connect(function()
-			discordtext.Visible = false
-		end)
-	end)
-	
-	
-	
-	
-	
-
-	credittext.Visible = false
-	
-	
-	creditbutton.MouseEnter:Connect(function()
-	
-		local fadeInTween = TweenService:Create(credittext, TweenInfo.new(0.2), {TextTransparency = 0})
-		fadeInTween:Play()
-	
-	
-		credittext.Visible = true
-	end)
-	
-	
-	creditbutton.MouseLeave:Connect(function()
-	
-		local fadeOutTween = TweenService:Create(credittext, TweenInfo.new(0.2), {TextTransparency = 1})
-		fadeOutTween:Play()
-	
-	
-		fadeOutTween.Completed:Connect(function()
-			credittext.Visible = false
-		end)
-	end)
-	
-	
-	
-	
-	
-	--Back button
-	backbutton.Activated:Connect(function()
-		hidelivetopiaroleplayimageTween:Play()
-		hidelivetopiaroleplaystatusTween:Play()
-		hidelivetopiaroleplaystatus2Tween:Play()
-		hidebrookhavenimageTween:Play()
-		hidebrookhavenstatusTween:Play()
-		hidebrookhavenstatus2Tween:Play()
-		hideberryavenueimageTween:Play()
-		hideberryavenuestatusTween:Play()
-		hideberryavenuestatus2Tween:Play()
-		hideredcliffcityrpimageTween:Play()
-		hideredcliffcityrpstatusTween:Play()
-		hideredcliffcityrpstatus2Tween:Play()
-		hidestatusofgamesTween:Play()
-		hidescrollingframeTween:Play()
-		hidebackbuttonTween:Play()
-		hidebackimageTween:Play()
-		hidebackbutton2Tween:Play()
-		hidebackimage2Tween:Play()
-		hidedeveloperimageTween:Play()
-		hidedeveloperimage2Tween:Play()	 
-		hidedeveloperimage3Tween:Play()
-		hidedeveloperimage4Tween:Play()
-		hidedevelopertextTween:Play()
-		hidedevelopertext2Tween:Play()
-		hidedeveloper2textTween:Play()
-		hidedeveloper2text2Tween:Play()
-		hidedeveloper3textTween:Play()
-		hidedeveloper3text2Tween:Play()
-		hidedeveloper4textTween:Play()
-		hidedeveloper4text2Tween:Play()
-		hideuistrokeTween:Play()
-		hideuistroke2Tween:Play()
-		hideuistroke3Tween:Play()
-		hideuistroke4Tween:Play()
-		changelogtextTween:Play()
-		changelogtext2Tween:Play()
-		
-	end)
-	
-	
-	
-	discordbutton.Activated:Connect(function()
-		setclipboard("https://discord.gg/Qnv4ATyc")
-            local req = (syn and syn.request) or (http and http.request) or http_request
-            if req then
-                req({
-                    Url = "http://127.0.0.1:6463/rpc?v=1",
-                    Method = "POST",
-                    Headers = {
-                        ["Content-Type"] = "application/json",
-                        ["Origin"] = "https://discord.com"
-                    },
-                    Body = http:JSONEncode({
-                        cmd = "INVITE_BROWSER",
-                        nonce = http:GenerateGUID(false),
-                        args = {code = "Qnv4ATyc"} 
-                    })
-                })
+        local oldreq = require
+        local function require(target)
+            if modules[target] then
+                return modules[target]()
             end
-	end)
-	
-	
-	creditbutton.Activated:Connect(function()
-		hidechangelogTween:Play()
-		hidechangelogtext2Tween:Play()
-		hidelivetopiaroleplayimageTween:Play()
-		hidelivetopiaroleplaystatusTween:Play()
-		hidelivetopiaroleplaystatus2Tween:Play()
-		hidebrookhavenimageTween:Play()
-		hidebrookhavenstatusTween:Play()
-		hidebrookhavenstatus2Tween:Play()
-		hideberryavenueimageTween:Play()
-		hideberryavenuestatusTween:Play()
-		hideberryavenuestatus2Tween:Play()
-		hideredcliffcityrpimageTween:Play()
-		hideredcliffcityrpstatusTween:Play()
-		hideredcliffcityrpstatus2Tween:Play()
-		hidestatusofgamesTween:Play()
-		hidescrollingframeTween:Play()
-		backbutton2Tween:Play()
-		backimage2Tween:Play()
-		credittext2Tween:Play()
-		scrollingframeTween:Play()
-		developerimageTween:Play()
-		developerimage2Tween:Play()	 
-		developerimage3Tween:Play()
-		developerimage4Tween:Play()
-		developertextTween:Play()
-		developertext2Tween:Play()
-		developer2textTween:Play()
-		developer2text2Tween:Play()
-		developer3textTween:Play()
-		developer3text2Tween:Play()
-		developer4textTween:Play()
-		developer4text2Tween:Play()
-		uistrokeTween:Play()
-		uistroke2Tween:Play()
-		uistroke3Tween:Play()
-		uistroke4Tween:Play()
-	end)
-	
-	
-	
-	
+            return oldreq(target)
+        end
 
-	backbutton2.Activated:Connect(function()
-		hidelivetopiaroleplayimageTween:Play()
-		hidelivetopiaroleplaystatusTween:Play()
-		hidelivetopiaroleplaystatus2Tween:Play()
-		hidebrookhavenimageTween:Play()
-		hidebrookhavenstatusTween:Play()
-		hidebrookhavenstatus2Tween:Play()
-		hideberryavenueimageTween:Play()
-		hideberryavenuestatusTween:Play()
-		hideberryavenuestatus2Tween:Play()
-		hideredcliffcityrpimageTween:Play()
-		hideredcliffcityrpstatusTween:Play()
-		hideredcliffcityrpstatus2Tween:Play()
-		hidestatusofgamesTween:Play()
-		hidestatusofgamesTween:Play()
-		hidescrollingframeTween:Play()
-		hidebackbuttonTween:Play()
-		hidebackimageTween:Play()
-		changelogtextTween:Play()
-		changelogtext2Tween:Play()
-		hidecredittext2Tween:Play()
-		hidedeveloperimageTween:Play()
-		hidedeveloperimage2Tween:Play()	 
-		hidedeveloperimage3Tween:Play()
-		hidedeveloperimage4Tween:Play()
-		hidedevelopertextTween:Play()
-		hidedevelopertext2Tween:Play()
-		hidedeveloper2textTween:Play()
-		hidedeveloper2text2Tween:Play()
-		hidedeveloper3textTween:Play()
-		hidedeveloper3text2Tween:Play()
-		hidedeveloper4textTween:Play()
-		hidedeveloper4text2Tween:Play()
-		hideuistrokeTween:Play()
-		hideuistroke2Tween:Play()
-		hideuistroke3Tween:Play()
-		hideuistroke4Tween:Play()
-	end)
-end)
+        local button = script.Parent
+
+        button.MouseEnter:Connect(
+            function()
+                game:GetService("TweenService"):Create(
+                    button,
+                    TweenInfo.new(0.2),
+                    {BackgroundColor3 = Color3.fromRGB(20, 20, 20)}
+                ):Play()
+            end
+        )
+
+        button.MouseLeave:Connect(
+            function()
+                game:GetService("TweenService"):Create(
+                    button,
+                    TweenInfo.new(0.2),
+                    {BackgroundColor3 = Color3.fromRGB(15, 15, 15)}
+                ):Play()
+            end
+        )
+    end
+)
+
+-- LoaderScript
+task.spawn(
+    function()
+        local script = loader_script
+
+        local oldreq = require
+        local function require(target)
+            if modules[target] then
+                return modules[target]()
+            end
+            return oldreq(target)
+        end
+
+        --variables
+        local TweenService = game:GetService("TweenService")
+
+        --locations
+        local frame = script.Parent.Frame
+        local devillogo1 = script.Parent.Frame.DevilLogo1
+        local devilhubtext = script.Parent.Frame.DevilHubText
+        local devillogo2 = script.Parent.Frame.DevilLogo2
+        local gamelogo = script.Parent.Frame.GameLogo
+        local gamedetectedtext = script.Parent.Frame.GameDetectedText
+        local playbutton = script.Parent.Frame.PlayButton
+        local playimage = script.Parent.Frame.PlayImage
+        local placeidtext = script.Parent.Frame.PlaceIDText
+        local devilhubtext2 = script.Parent.Frame.DevilHubText2
+        local versiontext = script.Parent.Frame.VersionText
+        local changelogtext = script.Parent.Frame.ChangelogText
+        local changelogtext2 = script.Parent.Frame.ChangelogText2
+        local statusbutton = script.Parent.Frame.StatusButton
+        local statustext = script.Parent.Frame.StatusText
+        local statusimage = script.Parent.Frame.StatusImage
+        local discordbutton = script.Parent.Frame.DiscordButton
+        local discordtext = script.Parent.Frame.DiscordText
+        local discordimage = script.Parent.Frame.DiscordImage
+        local creditbutton = script.Parent.Frame.CreditButton
+        local credittext = script.Parent.Frame.CreditText
+        local credittext2 = script.Parent.Frame.CreditText2
+        local creditimage = script.Parent.Frame.CreditImage
+        local scrollingframe = script.Parent.Frame.ScrollingFrame
+        local livetopiaroleplayimage = script.Parent.Frame.ScrollingFrame.LivetopiaRoleplayImage
+        local livetopiroleplayastatus = script.Parent.Frame.ScrollingFrame.LivetopiaRoleplayStatus
+        local livetopiroleplayastatus2 = script.Parent.Frame.ScrollingFrame.LivetopiaRoleplayStatus2
+        local brookhavenimage = script.Parent.Frame.ScrollingFrame.BrookhavenImage
+        local brookhavenstatus = script.Parent.Frame.ScrollingFrame.BrookhavenStatus
+        local brookhavenstatus2 = script.Parent.Frame.ScrollingFrame.BrookhavenStatus2
+        local berryavenueimage = script.Parent.Frame.ScrollingFrame.BerryAvenueImage
+        local berryavenuestatus = script.Parent.Frame.ScrollingFrame.BerryAvenueStatus
+        local berryavenuestatus2 = script.Parent.Frame.ScrollingFrame.BerryAvenueStatus2
+        local redcliffcityrpimage = script.Parent.Frame.ScrollingFrame.RedcliffCityRPImage
+        local redcliffcityrpstatus = script.Parent.Frame.ScrollingFrame.RedcliffCityRPStatus
+        local redcliffcityrpstatus2 = script.Parent.Frame.ScrollingFrame.RedcliffCityRPStatus2
+        local shadow = script.Parent.Frame.ShadowHolder.Shadow
+        local statusofgames = script.Parent.Frame.StatusOfGames
+        local backbutton = script.Parent.Frame.BackButton
+        local backimage = script.Parent.Frame.BackImage
+        local backbutton2 = script.Parent.Frame.BackButton2
+        local backimage2 = script.Parent.Frame.BackImage2
+        local developerimage = script.Parent.Frame.ScrollingFrame.DeveloperImage
+        local developerimage2 = script.Parent.Frame.ScrollingFrame.DeveloperImage2
+        local developerimage3 = script.Parent.Frame.ScrollingFrame.DeveloperImage3
+        local developerimage4 = script.Parent.Frame.ScrollingFrame.DeveloperImage4
+        local developertext = script.Parent.Frame.ScrollingFrame.DeveloperText
+        local developertext2 = script.Parent.Frame.ScrollingFrame.DeveloperText2
+        local developer2text = script.Parent.Frame.ScrollingFrame.Developer2Text
+        local developer2text2 = script.Parent.Frame.ScrollingFrame.Developer2Text2
+        local developer3text = script.Parent.Frame.ScrollingFrame.Developer3Text
+        local developer3text2 = script.Parent.Frame.ScrollingFrame.Developer3Text2
+        local developer4text = script.Parent.Frame.ScrollingFrame.Developer4Text
+        local developer4text2 = script.Parent.Frame.ScrollingFrame.Developer4Text2
+        local uistroke = script.Parent.Frame.ScrollingFrame.DeveloperImage.UIStroke
+        local uistroke2 = script.Parent.Frame.ScrollingFrame.DeveloperImage2.UIStroke2
+        local uistroke3 = script.Parent.Frame.ScrollingFrame.DeveloperImage3.UIStroke3
+        local uistroke4 = script.Parent.Frame.ScrollingFrame.DeveloperImage4.UIStroke4
+
+        --Draggable frame
+
+        frame = script.Parent.Frame
+        frame.Draggable = true
+        frame.Active = true
+        frame.Selectable = true
+
+        --Starting
+        frame.BackgroundTransparency = 1
+        devillogo1.ImageTransparency = 1
+        devilhubtext.TextTransparency = 1
+        devilhubtext2.TextTransparency = 1
+        devillogo2.ImageTransparency = 1
+        gamedetectedtext.TextTransparency = 1
+        gamelogo.ImageTransparency = 1
+        placeidtext.TextTransparency = 1
+        playbutton.BackgroundTransparency = 1
+        playimage.ImageTransparency = 1
+        versiontext.TextTransparency = 1
+        changelogtext.TextTransparency = 1
+        changelogtext2.TextTransparency = 1
+        statustext.TextTransparency = 1
+        statusbutton.BackgroundTransparency = 1
+        statusimage.ImageTransparency = 1
+        discordtext.TextTransparency = 1
+        discordbutton.BackgroundTransparency = 1
+        discordimage.ImageTransparency = 1
+        creditbutton.BackgroundTransparency = 1
+        credittext.TextTransparency = 1
+        credittext2.TextTransparency = 1
+        creditimage.ImageTransparency = 1
+        scrollingframe.BackgroundTransparency = 1
+        livetopiaroleplayimage.ImageTransparency = 1
+        livetopiroleplayastatus.TextTransparency = 1
+        livetopiroleplayastatus2.TextTransparency = 1
+        brookhavenimage.ImageTransparency = 1
+        brookhavenstatus.TextTransparency = 1
+        brookhavenstatus2.TextTransparency = 1
+        berryavenueimage.ImageTransparency = 1
+        berryavenuestatus.TextTransparency = 1
+        berryavenuestatus2.TextTransparency = 1
+        redcliffcityrpimage.ImageTransparency = 1
+        redcliffcityrpstatus.TextTransparency = 1
+        redcliffcityrpstatus2.TextTransparency = 1
+        statusofgames.TextTransparency = 1
+        backbutton.TextTransparency = 1
+        backimage.ImageTransparency = 1
+        backbutton2.TextTransparency = 1
+        backimage2.ImageTransparency = 1
+        shadow.ImageTransparency = 1
+        developerimage.ImageTransparency = 1
+        developerimage2.ImageTransparency = 1
+        developerimage3.ImageTransparency = 1
+        developerimage4.ImageTransparency = 1
+        developertext.TextTransparency = 1
+        developertext2.TextTransparency = 1
+        developer2text.TextTransparency = 1
+        developer2text2.TextTransparency = 1
+        developer3text.TextTransparency = 1
+        developer3text2.TextTransparency = 1
+        developer4text.TextTransparency = 1
+        developer4text2.TextTransparency = 1
+        uistroke.Transparency = 1
+        uistroke2.Transparency = 1
+        uistroke3.Transparency = 1
+        uistroke4.Transparency = 1
+
+        --Make Tween
+        local frameTween = game:GetService("TweenService"):Create(frame, TweenInfo.new(1), {BackgroundTransparency = 0})
+        local devillogo1Tween =
+            game:GetService("TweenService"):Create(devillogo1, TweenInfo.new(1), {ImageTransparency = 0})
+        local devilhubtextTween =
+            game:GetService("TweenService"):Create(devilhubtext, TweenInfo.new(1), {TextTransparency = 0})
+        local devillogo2Tween =
+            game:GetService("TweenService"):Create(devillogo2, TweenInfo.new(1), {ImageTransparency = 0})
+        local gamelogoTween =
+            game:GetService("TweenService"):Create(gamelogo, TweenInfo.new(1), {ImageTransparency = 0})
+        local gamedetectedtextTween =
+            game:GetService("TweenService"):Create(gamedetectedtext, TweenInfo.new(1), {TextTransparency = 0})
+        local placeidTween =
+            game:GetService("TweenService"):Create(placeidtext, TweenInfo.new(1), {TextTransparency = 0})
+        local devilhubtext2Tween =
+            game:GetService("TweenService"):Create(devilhubtext2, TweenInfo.new(1), {TextTransparency = 0})
+        local playbuttonTween =
+            game:GetService("TweenService"):Create(playbutton, TweenInfo.new(1), {BackgroundTransparency = 0})
+        local playimageTween =
+            game:GetService("TweenService"):Create(playimage, TweenInfo.new(1), {ImageTransparency = 0})
+        local versiontextTween =
+            game:GetService("TweenService"):Create(versiontext, TweenInfo.new(1), {TextTransparency = 0})
+        local changelogtextTween =
+            game:GetService("TweenService"):Create(changelogtext, TweenInfo.new(0.2), {TextTransparency = 0})
+        local changelogtext2Tween =
+            game:GetService("TweenService"):Create(changelogtext2, TweenInfo.new(0.2), {TextTransparency = 0})
+        local statustextTween =
+            game:GetService("TweenService"):Create(statustext, TweenInfo.new(0.2), {TextTransparency = 0})
+        local statusbuttonTween =
+            game:GetService("TweenService"):Create(statusbutton, TweenInfo.new(1), {BackgroundTransparency = 0})
+        local statusimageTween =
+            game:GetService("TweenService"):Create(statusimage, TweenInfo.new(1), {ImageTransparency = 0})
+        local discordtextTween =
+            game:GetService("TweenService"):Create(discordtext, TweenInfo.new(1), {TextTransparency = 0})
+        local discordbuttonTween =
+            game:GetService("TweenService"):Create(discordbutton, TweenInfo.new(1), {BackgroundTransparency = 0})
+        local discordimageTween =
+            game:GetService("TweenService"):Create(discordimage, TweenInfo.new(1), {ImageTransparency = 0})
+        local creditbuttonTween =
+            game:GetService("TweenService"):Create(creditbutton, TweenInfo.new(1), {BackgroundTransparency = 0})
+        local credittext2Tween =
+            game:GetService("TweenService"):Create(credittext2, TweenInfo.new(0.2), {TextTransparency = 0})
+        local credittextTween =
+            game:GetService("TweenService"):Create(credittext, TweenInfo.new(1), {TextTransparency = 0})
+        local creditimageTween =
+            game:GetService("TweenService"):Create(creditimage, TweenInfo.new(1), {ImageTransparency = 0})
+        local scrollingframeTween =
+            game:GetService("TweenService"):Create(scrollingframe, TweenInfo.new(0.2), {BackgroundTransparency = 0})
+        local livetopiaroleplayimageTween =
+            game:GetService("TweenService"):Create(livetopiaroleplayimage, TweenInfo.new(0.2), {ImageTransparency = 0})
+        local livetopiroleplayastatusTween =
+            game:GetService("TweenService"):Create(livetopiroleplayastatus, TweenInfo.new(0.2), {TextTransparency = 0})
+        local ivetopiastatus2Tween =
+            game:GetService("TweenService"):Create(livetopiroleplayastatus2, TweenInfo.new(0.2), {TextTransparency = 0})
+        local brookhavenimageTween =
+            game:GetService("TweenService"):Create(brookhavenimage, TweenInfo.new(0.2), {ImageTransparency = 0})
+        local brookhavenstatusTween =
+            game:GetService("TweenService"):Create(brookhavenstatus, TweenInfo.new(0.2), {TextTransparency = 0})
+        local brookhavenstatus2Tween =
+            game:GetService("TweenService"):Create(brookhavenstatus2, TweenInfo.new(0.2), {TextTransparency = 0})
+        local berryavenueimageTween =
+            game:GetService("TweenService"):Create(berryavenueimage, TweenInfo.new(0.2), {ImageTransparency = 0})
+        local berryavenuestatusTween =
+            game:GetService("TweenService"):Create(berryavenuestatus, TweenInfo.new(0.2), {TextTransparency = 0})
+        local berryavenuestatus2Tween =
+            game:GetService("TweenService"):Create(berryavenuestatus2, TweenInfo.new(0.2), {TextTransparency = 0})
+        local redcliffcityrpimageTween =
+            game:GetService("TweenService"):Create(redcliffcityrpimage, TweenInfo.new(0.2), {ImageTransparency = 0})
+        local redcliffcityrpstatusTween =
+            game:GetService("TweenService"):Create(redcliffcityrpstatus, TweenInfo.new(0.2), {TextTransparency = 0})
+        local redcliffcityrpstatus2Tween =
+            game:GetService("TweenService"):Create(redcliffcityrpstatus2, TweenInfo.new(0.2), {TextTransparency = 0})
+        local shadowholderTween =
+            game:GetService("TweenService"):Create(shadow, TweenInfo.new(1), {ImageTransparency = 0})
+        local statusofgamesTween =
+            game:GetService("TweenService"):Create(statusofgames, TweenInfo.new(0.2), {TextTransparency = 0})
+        local backbuttonTween =
+            game:GetService("TweenService"):Create(backbutton, TweenInfo.new(0.2), {TextTransparency = 0})
+        local backimageTween =
+            game:GetService("TweenService"):Create(backimage, TweenInfo.new(0.2), {ImageTransparency = 0})
+        local backbutton2Tween =
+            game:GetService("TweenService"):Create(backbutton, TweenInfo.new(0.2), {TextTransparency = 0})
+        local backimage2Tween =
+            game:GetService("TweenService"):Create(backimage, TweenInfo.new(0.2), {ImageTransparency = 0})
+        local developerimageTween =
+            game:GetService("TweenService"):Create(developerimage, TweenInfo.new(0.2), {ImageTransparency = 0})
+        local developerimage2Tween =
+            game:GetService("TweenService"):Create(developerimage2, TweenInfo.new(0.2), {ImageTransparency = 0})
+        local developerimage3Tween =
+            game:GetService("TweenService"):Create(developerimage3, TweenInfo.new(0.2), {ImageTransparency = 0})
+        local developerimage4Tween =
+            game:GetService("TweenService"):Create(developerimage4, TweenInfo.new(0.2), {ImageTransparency = 0})
+        local developertextTween =
+            game:GetService("TweenService"):Create(developertext, TweenInfo.new(0.2), {TextTransparency = 0})
+        local developertext2Tween =
+            game:GetService("TweenService"):Create(developertext2, TweenInfo.new(0.2), {TextTransparency = 0})
+        local developer2textTween =
+            game:GetService("TweenService"):Create(developer2text, TweenInfo.new(0.2), {TextTransparency = 0})
+        local developer2text2Tween =
+            game:GetService("TweenService"):Create(developer2text2, TweenInfo.new(0.2), {TextTransparency = 0})
+        local developer3textTween =
+            game:GetService("TweenService"):Create(developer3text, TweenInfo.new(0.2), {TextTransparency = 0})
+        local developer3text2Tween =
+            game:GetService("TweenService"):Create(developer3text2, TweenInfo.new(0.2), {TextTransparency = 0})
+        local developer4textTween =
+            game:GetService("TweenService"):Create(developer4text, TweenInfo.new(0.2), {TextTransparency = 0})
+        local developer4text2Tween =
+            game:GetService("TweenService"):Create(developer4text2, TweenInfo.new(0.2), {TextTransparency = 0})
+        local uistrokeTween = game:GetService("TweenService"):Create(uistroke, TweenInfo.new(0.2), {Transparency = 0})
+        local uistroke2Tween = game:GetService("TweenService"):Create(uistroke2, TweenInfo.new(0.2), {Transparency = 0})
+        local uistroke3Tween = game:GetService("TweenService"):Create(uistroke3, TweenInfo.new(0.2), {Transparency = 0})
+        local uistroke4Tween = game:GetService("TweenService"):Create(uistroke4, TweenInfo.new(0.2), {Transparency = 0})
+
+        --Play first tween
+        frameTween:Play()
+        shadowholderTween:Play()
+        wait(0.7)
+
+        devillogo1Tween:Play()
+        wait(1.5)
+
+        devilhubtextTween:Play()
+
+        --Hide Tween
+        local hideframeTween =
+            game:GetService("TweenService"):Create(frame, TweenInfo.new(1), {BackgroundTransparency = 1})
+        local hidedevillogo1Tween =
+            game:GetService("TweenService"):Create(devillogo1, TweenInfo.new(1), {ImageTransparency = 1})
+        local hidedevilhubtextTween =
+            game:GetService("TweenService"):Create(devilhubtext, TweenInfo.new(1), {TextTransparency = 1})
+        local hidedevillogo2Tween =
+            game:GetService("TweenService"):Create(devillogo2, TweenInfo.new(1), {ImageTransparency = 1})
+        local hidegamelogoTween =
+            game:GetService("TweenService"):Create(gamelogo, TweenInfo.new(1), {ImageTransparency = 1})
+        local hidegamedetectedtextTween =
+            game:GetService("TweenService"):Create(gamedetectedtext, TweenInfo.new(1), {TextTransparency = 1})
+        local hideplaceidTween =
+            game:GetService("TweenService"):Create(placeidtext, TweenInfo.new(1), {TextTransparency = 1})
+        local hidedevilhubtext2Tween =
+            game:GetService("TweenService"):Create(devilhubtext2, TweenInfo.new(1), {TextTransparency = 1})
+        local hideplaybuttonTween =
+            game:GetService("TweenService"):Create(playbutton, TweenInfo.new(1), {BackgroundTransparency = 1})
+        local hideplayimageTween =
+            game:GetService("TweenService"):Create(playimage, TweenInfo.new(1), {ImageTransparency = 1})
+        local hideversiontextTween =
+            game:GetService("TweenService"):Create(versiontext, TweenInfo.new(1), {TextTransparency = 1})
+        local hidechangelogTween =
+            game:GetService("TweenService"):Create(changelogtext, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hidechangelogtext2Tween =
+            game:GetService("TweenService"):Create(changelogtext2, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hidestatustextTween =
+            game:GetService("TweenService"):Create(statustext, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hidestatusbuttonTween =
+            game:GetService("TweenService"):Create(statusbutton, TweenInfo.new(1), {BackgroundTransparency = 1})
+        local hidestatusimageTween =
+            game:GetService("TweenService"):Create(statusimage, TweenInfo.new(1), {ImageTransparency = 1})
+        local hidediscordtextTween =
+            game:GetService("TweenService"):Create(discordtext, TweenInfo.new(1), {TextTransparency = 1})
+        local hidediscordbuttonTween =
+            game:GetService("TweenService"):Create(discordbutton, TweenInfo.new(1), {BackgroundTransparency = 1})
+        local hidediscordimageTween =
+            game:GetService("TweenService"):Create(discordimage, TweenInfo.new(1), {ImageTransparency = 1})
+        local hidecreditbuttonTween =
+            game:GetService("TweenService"):Create(creditbutton, TweenInfo.new(1), {BackgroundTransparency = 1})
+        local hidecredittextTween =
+            game:GetService("TweenService"):Create(credittext, TweenInfo.new(1), {TextTransparency = 1})
+        local hidecredittext2Tween =
+            game:GetService("TweenService"):Create(credittext2, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hidecreditimageTween =
+            game:GetService("TweenService"):Create(creditimage, TweenInfo.new(1), {ImageTransparency = 1})
+        local hidescrollingframeTween =
+            game:GetService("TweenService"):Create(scrollingframe, TweenInfo.new(0.2), {BackgroundTransparency = 1})
+        local hidelivetopiaroleplayimageTween =
+            game:GetService("TweenService"):Create(livetopiaroleplayimage, TweenInfo.new(0.2), {ImageTransparency = 1})
+        local hidelivetopiaroleplaystatusTween =
+            game:GetService("TweenService"):Create(livetopiroleplayastatus, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hidelivetopiaroleplaystatus2Tween =
+            game:GetService("TweenService"):Create(livetopiroleplayastatus2, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hidebrookhavenimageTween =
+            game:GetService("TweenService"):Create(brookhavenimage, TweenInfo.new(0.2), {ImageTransparency = 1})
+        local hidebrookhavenstatusTween =
+            game:GetService("TweenService"):Create(brookhavenstatus, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hidebrookhavenstatus2Tween =
+            game:GetService("TweenService"):Create(brookhavenstatus2, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hideberryavenueimageTween =
+            game:GetService("TweenService"):Create(berryavenueimage, TweenInfo.new(0.2), {ImageTransparency = 1})
+        local hideberryavenuestatusTween =
+            game:GetService("TweenService"):Create(berryavenuestatus, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hideberryavenuestatus2Tween =
+            game:GetService("TweenService"):Create(berryavenuestatus2, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hideredcliffcityrpimageTween =
+            game:GetService("TweenService"):Create(redcliffcityrpimage, TweenInfo.new(0.2), {ImageTransparency = 1})
+        local hideredcliffcityrpstatusTween =
+            game:GetService("TweenService"):Create(redcliffcityrpstatus, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hideredcliffcityrpstatus2Tween =
+            game:GetService("TweenService"):Create(redcliffcityrpstatus2, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hideshadowTween =
+            game:GetService("TweenService"):Create(shadow, TweenInfo.new(1), {ImageTransparency = 1})
+        local hidestatusofgamesTween =
+            game:GetService("TweenService"):Create(statusofgames, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hidebackbuttonTween =
+            game:GetService("TweenService"):Create(backbutton, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hidebackimageTween =
+            game:GetService("TweenService"):Create(backimage, TweenInfo.new(0.2), {ImageTransparency = 1})
+        local hidebackbutton2Tween =
+            game:GetService("TweenService"):Create(backbutton, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hidebackimage2Tween =
+            game:GetService("TweenService"):Create(backimage, TweenInfo.new(0.2), {ImageTransparency = 1})
+        local hidedeveloperimageTween =
+            game:GetService("TweenService"):Create(developerimage, TweenInfo.new(0.2), {ImageTransparency = 1})
+        local hidedeveloperimage2Tween =
+            game:GetService("TweenService"):Create(developerimage2, TweenInfo.new(0.2), {ImageTransparency = 1})
+        local hidedeveloperimage3Tween =
+            game:GetService("TweenService"):Create(developerimage3, TweenInfo.new(0.2), {ImageTransparency = 1})
+        local hidedeveloperimage4Tween =
+            game:GetService("TweenService"):Create(developerimage4, TweenInfo.new(0.2), {ImageTransparency = 1})
+        local hidedevelopertextTween =
+            game:GetService("TweenService"):Create(developertext, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hidedevelopertext2Tween =
+            game:GetService("TweenService"):Create(developertext2, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hidedeveloper2textTween =
+            game:GetService("TweenService"):Create(developer2text, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hidedeveloper2text2Tween =
+            game:GetService("TweenService"):Create(developer2text2, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hidedeveloper3textTween =
+            game:GetService("TweenService"):Create(developer3text, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hidedeveloper3text2Tween =
+            game:GetService("TweenService"):Create(developer3text2, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hidedeveloper4textTween =
+            game:GetService("TweenService"):Create(developer4text, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hidedeveloper4text2Tween =
+            game:GetService("TweenService"):Create(developer4text2, TweenInfo.new(0.2), {TextTransparency = 1})
+        local hideuistrokeTween =
+            game:GetService("TweenService"):Create(uistroke, TweenInfo.new(0.2), {Transparency = 1})
+        local hideuistroke2Tween =
+            game:GetService("TweenService"):Create(uistroke2, TweenInfo.new(0.2), {Transparency = 1})
+        local hideuistroke3Tween =
+            game:GetService("TweenService"):Create(uistroke3, TweenInfo.new(0.2), {Transparency = 1})
+        local hideuistroke4Tween =
+            game:GetService("TweenService"):Create(uistroke4, TweenInfo.new(0.2), {Transparency = 1})
+
+        --Play hide tweens
+        wait(1.2)
+
+        hidedevillogo1Tween:Play()
+        hidedevilhubtextTween:Play()
+
+        wait(0.77)
+
+        --Size change
+        local originalSize = frame.Size
+        local newSize = originalSize + UDim2.new(0.02, 0, 0.02, 0)
+        local tweenInfo = TweenInfo.new(0.55, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+        local tween = TweenService:Create(frame, tweenInfo, {Size = newSize})
+        tween:Play()
+
+        wait(1.7)
+
+        --play more tween
+        devillogo2Tween:Play()
+        gamelogoTween:Play()
+        gamedetectedtextTween:Play()
+        placeidTween:Play()
+        devilhubtext2Tween:Play()
+        playbuttonTween:Play()
+        playimageTween:Play()
+        versiontextTween:Play()
+        changelogtextTween:Play()
+        changelogtext2Tween:Play()
+        statustextTween:Play()
+        statusbuttonTween:Play()
+        statusimageTween:Play()
+        discordtextTween:Play()
+        discordbuttonTween:Play()
+        discordimageTween:Play()
+        creditbuttonTween:Play()
+        credittextTween:Play()
+        creditimageTween:Play()
+
+        --Play button
+        playbutton.Activated:Connect(
+            function()
+                hideplayimageTween:Play()
+                hidedevilhubtextTween:Play()
+                hidedevilhubtext2Tween:Play()
+                hidedevillogo2Tween:Play()
+                hidegamelogoTween:Play()
+                hidegamedetectedtextTween:Play()
+                hideplaybuttonTween:Play()
+                hidegamelogoTween:Play()
+                hidedevillogo1Tween:Play()
+                hideversiontextTween:Play()
+                hideplaceidTween:Play()
+                hidechangelogTween:Play()
+                hidechangelogtext2Tween:Play()
+                hidestatustextTween:Play()
+                hidestatusbuttonTween:Play()
+                hidestatusimageTween:Play()
+                hidediscordtextTween:Play()
+                hidediscordbuttonTween:Play()
+                hidediscordimageTween:Play()
+                hidecreditbuttonTween:Play()
+                hidecredittextTween:Play()
+                hidecredittext2Tween:Play()
+                hidecreditimageTween:Play()
+                hidelivetopiaroleplayimageTween:Play()
+                hidelivetopiaroleplaystatusTween:Play()
+                hidelivetopiaroleplaystatus2Tween:Play()
+                hidebrookhavenimageTween:Play()
+                hidebrookhavenstatusTween:Play()
+                hidebrookhavenstatus2Tween:Play()
+                hideberryavenueimageTween:Play()
+                hideberryavenuestatusTween:Play()
+                hideberryavenuestatus2Tween:Play()
+                hideredcliffcityrpimageTween:Play()
+                hideredcliffcityrpstatusTween:Play()
+                hideredcliffcityrpstatus2Tween:Play()
+                hidestatusofgamesTween:Play()
+                hidescrollingframeTween:Play()
+                hidebackbuttonTween:Play()
+                hidebackimageTween:Play()
+                hidebackbutton2Tween:Play()
+                hidebackimage2Tween:Play()
+                hidedeveloperimageTween:Play()
+                hidedeveloperimage2Tween:Play()
+                hidedeveloperimage3Tween:Play()
+                hidedeveloperimage4Tween:Play()
+                hidedevelopertextTween:Play()
+                hidedevelopertext2Tween:Play()
+                hidedeveloper2textTween:Play()
+                hidedeveloper2text2Tween:Play()
+                hidedeveloper3textTween:Play()
+                hidedeveloper3text2Tween:Play()
+                hidedeveloper4textTween:Play()
+                hidedeveloper4text2Tween:Play()
+                hideuistrokeTween:Play()
+                hideuistroke2Tween:Play()
+                hideuistroke3Tween:Play()
+                hideuistroke4Tween:Play()
+
+                wait(0.5)
+
+                local tweenInfo = TweenInfo.new(0.55, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+                local tween = TweenService:Create(frame, tweenInfo, {Size = originalSize})
+                tween:Play()
+                wait(0.4)
+                devillogo1Tween:Play()
+                wait(0.87)
+                hidedevillogo1Tween:Play()
+                wait(0.87)
+                devillogo1Tween:Play()
+                wait(0.87)
+                hidedevillogo1Tween:Play()
+                wait(0.87)
+                devillogo1Tween:Play()
+                wait(0.87)
+                hidedevillogo1Tween:Play()
+                wait(1.2)
+                hideframeTween:Play()
+                hideshadowTween:Play()
+                wait(1.2)
+
+                loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/RFR-R1CH4RD/DevilHub-/main/Main.lua"))()
+                for _, obj in pairs(game:GetService("CoreGui"):GetChildren()) do
+                    if obj:IsA("ScreenGui") and obj:FindFirstChild("Loader") then
+                        obj:Destroy()
+                    end
+                end
+            end
+        )
+
+        --Status button
+        statusbutton.Activated:Connect(
+            function()
+                hidechangelogTween:Play()
+                hidechangelogtext2Tween:Play()
+                hidecredittext2Tween:Play()
+                hidebackbutton2Tween:Play()
+                hidebackimage2Tween:Play()
+                hidedeveloperimageTween:Play()
+                hidedeveloperimage2Tween:Play()
+                hidedeveloperimage3Tween:Play()
+                hidedeveloperimage4Tween:Play()
+                hidedevelopertextTween:Play()
+                hidedevelopertext2Tween:Play()
+                hidedeveloper2textTween:Play()
+                hidedeveloper2text2Tween:Play()
+                hidedeveloper3textTween:Play()
+                hidedeveloper3text2Tween:Play()
+                hidedeveloper4textTween:Play()
+                hidedeveloper4text2Tween:Play()
+                hideuistrokeTween:Play()
+                hideuistroke2Tween:Play()
+                hideuistroke3Tween:Play()
+                hideuistroke4Tween:Play()
+                scrollingframeTween:Play()
+                statusofgamesTween:Play()
+                livetopiaroleplayimageTween:Play()
+                livetopiroleplayastatusTween:Play()
+                ivetopiastatus2Tween:Play()
+                brookhavenimageTween:Play()
+                brookhavenstatusTween:Play()
+                brookhavenstatus2Tween:Play()
+                berryavenueimageTween:Play()
+                berryavenuestatusTween:Play()
+                berryavenuestatus2Tween:Play()
+                redcliffcityrpimageTween:Play()
+                redcliffcityrpstatusTween:Play()
+                redcliffcityrpstatus2Tween:Play()
+                backbuttonTween:Play()
+                backimageTween:Play()
+            end
+        )
+
+        --Status hover effect
+        statustext.Visible = false
+
+        statusbutton.MouseEnter:Connect(
+            function()
+                local fadeInTween = TweenService:Create(statustext, TweenInfo.new(0.2), {TextTransparency = 0})
+                fadeInTween:Play()
+
+                statustext.Visible = true
+            end
+        )
+
+        statusbutton.MouseLeave:Connect(
+            function()
+                local fadeOutTween = TweenService:Create(statustext, TweenInfo.new(0.2), {TextTransparency = 1})
+                fadeOutTween:Play()
+
+                fadeOutTween.Completed:Connect(
+                    function()
+                        statustext.Visible = false
+                    end
+                )
+            end
+        )
+
+        --Discord hover effect
+        discordtext.Visible = false
+
+        discordbutton.MouseEnter:Connect(
+            function()
+                local fadeInTween = TweenService:Create(discordtext, TweenInfo.new(0.2), {TextTransparency = 0})
+                fadeInTween:Play()
+
+                discordtext.Visible = true
+            end
+        )
+
+        discordbutton.MouseLeave:Connect(
+            function()
+                local fadeOutTween = TweenService:Create(discordtext, TweenInfo.new(0.2), {TextTransparency = 1})
+                fadeOutTween:Play()
+
+                fadeOutTween.Completed:Connect(
+                    function()
+                        discordtext.Visible = false
+                    end
+                )
+            end
+        )
+
+        --Credit hover effect
+        credittext.Visible = false
+
+        creditbutton.MouseEnter:Connect(
+            function()
+                local fadeInTween = TweenService:Create(credittext, TweenInfo.new(0.2), {TextTransparency = 0})
+                fadeInTween:Play()
+
+                credittext.Visible = true
+            end
+        )
+
+        creditbutton.MouseLeave:Connect(
+            function()
+                local fadeOutTween = TweenService:Create(credittext, TweenInfo.new(0.2), {TextTransparency = 1})
+                fadeOutTween:Play()
+
+                fadeOutTween.Completed:Connect(
+                    function()
+                        credittext.Visible = false
+                    end
+                )
+            end
+        )
+
+        --Back button
+        backbutton.Activated:Connect(
+            function()
+                hidelivetopiaroleplayimageTween:Play()
+                hidelivetopiaroleplaystatusTween:Play()
+                hidelivetopiaroleplaystatus2Tween:Play()
+                hidebrookhavenimageTween:Play()
+                hidebrookhavenstatusTween:Play()
+                hidebrookhavenstatus2Tween:Play()
+                hideberryavenueimageTween:Play()
+                hideberryavenuestatusTween:Play()
+                hideberryavenuestatus2Tween:Play()
+                hideredcliffcityrpimageTween:Play()
+                hideredcliffcityrpstatusTween:Play()
+                hideredcliffcityrpstatus2Tween:Play()
+                hidestatusofgamesTween:Play()
+                hidescrollingframeTween:Play()
+                hidebackbuttonTween:Play()
+                hidebackimageTween:Play()
+                hidebackbutton2Tween:Play()
+                hidebackimage2Tween:Play()
+                hidedeveloperimageTween:Play()
+                hidedeveloperimage2Tween:Play()
+                hidedeveloperimage3Tween:Play()
+                hidedeveloperimage4Tween:Play()
+                hidedevelopertextTween:Play()
+                hidedevelopertext2Tween:Play()
+                hidedeveloper2textTween:Play()
+                hidedeveloper2text2Tween:Play()
+                hidedeveloper3textTween:Play()
+                hidedeveloper3text2Tween:Play()
+                hidedeveloper4textTween:Play()
+                hidedeveloper4text2Tween:Play()
+                hideuistrokeTween:Play()
+                hideuistroke2Tween:Play()
+                hideuistroke3Tween:Play()
+                hideuistroke4Tween:Play()
+                changelogtextTween:Play()
+                changelogtext2Tween:Play()
+            end
+        )
+
+        discordbutton.Activated:Connect(
+            function()
+            end
+        )
+
+        creditbutton.Activated:Connect(
+            function()
+                hidechangelogTween:Play()
+                hidechangelogtext2Tween:Play()
+                hidelivetopiaroleplayimageTween:Play()
+                hidelivetopiaroleplaystatusTween:Play()
+                hidelivetopiaroleplaystatus2Tween:Play()
+                hidebrookhavenimageTween:Play()
+                hidebrookhavenstatusTween:Play()
+                hidebrookhavenstatus2Tween:Play()
+                hideberryavenueimageTween:Play()
+                hideberryavenuestatusTween:Play()
+                hideberryavenuestatus2Tween:Play()
+                hideredcliffcityrpimageTween:Play()
+                hideredcliffcityrpstatusTween:Play()
+                hideredcliffcityrpstatus2Tween:Play()
+                hidestatusofgamesTween:Play()
+                hidescrollingframeTween:Play()
+                backbutton2Tween:Play()
+                backimage2Tween:Play()
+                credittext2Tween:Play()
+                scrollingframeTween:Play()
+                developerimageTween:Play()
+                developerimage2Tween:Play()
+                developerimage3Tween:Play()
+                developerimage4Tween:Play()
+                developertextTween:Play()
+                developertext2Tween:Play()
+                developer2textTween:Play()
+                developer2text2Tween:Play()
+                developer3textTween:Play()
+                developer3text2Tween:Play()
+                developer4textTween:Play()
+                developer4text2Tween:Play()
+                uistrokeTween:Play()
+                uistroke2Tween:Play()
+                uistroke3Tween:Play()
+                uistroke4Tween:Play()
+            end
+        )
+
+        --Back button2
+        backbutton2.Activated:Connect(
+            function()
+                hidelivetopiaroleplayimageTween:Play()
+                hidelivetopiaroleplaystatusTween:Play()
+                hidelivetopiaroleplaystatus2Tween:Play()
+                hidebrookhavenimageTween:Play()
+                hidebrookhavenstatusTween:Play()
+                hidebrookhavenstatus2Tween:Play()
+                hideberryavenueimageTween:Play()
+                hideberryavenuestatusTween:Play()
+                hideberryavenuestatus2Tween:Play()
+                hideredcliffcityrpimageTween:Play()
+                hideredcliffcityrpstatusTween:Play()
+                hideredcliffcityrpstatus2Tween:Play()
+                hidestatusofgamesTween:Play()
+                hidestatusofgamesTween:Play()
+                hidescrollingframeTween:Play()
+                hidebackbuttonTween:Play()
+                hidebackimageTween:Play()
+                changelogtextTween:Play()
+                changelogtext2Tween:Play()
+                hidecredittext2Tween:Play()
+                hidedeveloperimageTween:Play()
+                hidedeveloperimage2Tween:Play()
+                hidedeveloperimage3Tween:Play()
+                hidedeveloperimage4Tween:Play()
+                hidedevelopertextTween:Play()
+                hidedevelopertext2Tween:Play()
+                hidedeveloper2textTween:Play()
+                hidedeveloper2text2Tween:Play()
+                hidedeveloper3textTween:Play()
+                hidedeveloper3text2Tween:Play()
+                hidedeveloper4textTween:Play()
+                hidedeveloper4text2Tween:Play()
+                hideuistrokeTween:Play()
+                hideuistroke2Tween:Play()
+                hideuistroke3Tween:Play()
+                hideuistroke4Tween:Play()
+            end
+        )
+    end
+)
