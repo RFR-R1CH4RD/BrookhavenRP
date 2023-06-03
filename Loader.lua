@@ -165,7 +165,7 @@ play_image.Parent = frame
 
 local changelog_text = Instance.new("TextLabel")
 changelog_text.Font = Enum.Font.SourceSansBold
-changelog_text.Text = " [*]DevilHub\n [!]Updated script loader\n [*]EntertainmentTab\n [=] The Hold All Tools function has been optimized. \n [=] Optimized Anti Exploiter.\n [=] Optimized some functions\n [+]Added the FE Taser circle feature\n [+]Added the FE dick feature\n [*]UI Library\n [=] Some bugs have been fixed\n [*]Brookhaven RP\n [-]Patched things have been removed"
+changelog_text.Text = " [*]DevilHub\n [!]Updated script loader\n [*]Brookhaven\n [=] The Hold All Tools function has been optimized. \n [=] Optimized Anti Exploiter.\n [=] Optimized some functions\n [+]Added the FE Taser circle feature\n [+]Added the FE dick feature\n [-]Patched things have been removed\n [*]UI Library\n [=] Some bugs have been fixed"
 
 changelog_text.TextColor3 = Color3.new(1, 1, 1)
 changelog_text.TextSize = 14
@@ -430,7 +430,7 @@ uitext_size_constraint_4.MaxTextSize = 14
 uitext_size_constraint_4.Parent = berry_avenue_status2
 
 local livetopia_roleplay_image = Instance.new("ImageLabel")
-livetopia_roleplay_image.Image = "rbxassetid://13433604877"
+livetopia_roleplay_image.Image = "rbxassetid://13637164213"
 livetopia_roleplay_image.AnchorPoint = Vector2.new(0.5, 0.5)
 livetopia_roleplay_image.BackgroundColor3 = Color3.new(1, 1, 1)
 livetopia_roleplay_image.BackgroundTransparency = 1
@@ -489,7 +489,7 @@ uitext_size_constraint_6.MaxTextSize = 14
 uitext_size_constraint_6.Parent = livetopia_roleplay_status2
 
 local redcliff_cityrPImage = Instance.new("ImageLabel")
-redcliff_cityrPImage.Image = "rbxassetid://13433634776"
+redcliff_cityrPImage.Image = "rbxassetid://13637177321"
 redcliff_cityrPImage.AnchorPoint = Vector2.new(0.5, 0.5)
 redcliff_cityrPImage.BackgroundColor3 = Color3.new(1, 1, 1)
 redcliff_cityrPImage.BackgroundTransparency = 1
@@ -548,7 +548,7 @@ uitext_size_constraint_8.MaxTextSize = 14
 uitext_size_constraint_8.Parent = redcliff_cityrPStatus2
 
 local brookhaven_image = Instance.new("ImageLabel")
-brookhaven_image.Image = "rbxassetid://13544218742"
+brookhaven_image.Image = "rbxassetid://13637139785"
 brookhaven_image.AnchorPoint = Vector2.new(0.5, 0.5)
 brookhaven_image.BackgroundColor3 = Color3.new(1, 1, 1)
 brookhaven_image.BackgroundTransparency = 1
