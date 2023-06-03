@@ -116,7 +116,7 @@ place_idtext.Name = "PlaceIDText"
 place_idtext.Parent = frame
 
 local game_logo = Instance.new("ImageLabel")
-game_logo.Image = "rbxassetid://13544218742"
+game_logo.Image = "rbxassetid://13637139785"
 game_logo.AnchorPoint = Vector2.new(0.5, 0.5)
 game_logo.BackgroundColor3 = Color3.new(1, 1, 1)
 game_logo.BackgroundTransparency = 1
