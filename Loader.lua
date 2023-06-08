@@ -343,7 +343,7 @@ uicorner_5.Parent = berry_avenue_image
 
 local brookhaven_status = Instance.new("TextLabel")
 brookhaven_status.Font = Enum.Font.SourceSansBold
-brookhaven_status.Text = "Status: Operates"
+brookhaven_status.Text = "Status: No Operates"
 brookhaven_status.TextColor3 = Color3.new(1, 1, 1)
 brookhaven_status.TextScaled = true
 brookhaven_status.TextSize = 14
