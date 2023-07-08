@@ -58,7 +58,7 @@ devil_hub_text2.Parent = frame
 
 local version_text = Instance.new("TextLabel")
 version_text.Font = Enum.Font.SourceSansBold
-version_text.Text = "Version | 0.47"
+version_text.Text = "Version | 0.49"
 version_text.TextColor3 = Color3.new(1, 1, 1)
 version_text.TextSize = 14
 version_text.TextStrokeColor3 = Color3.new(1, 1, 1)
@@ -116,7 +116,7 @@ place_idtext.Name = "PlaceIDText"
 place_idtext.Parent = frame
 
 local game_logo = Instance.new("ImageLabel")
-game_logo.Image = "rbxassetid://13637139785"
+game_logo.Image = "rbxassetid://13994818825"
 game_logo.AnchorPoint = Vector2.new(0.5, 0.5)
 game_logo.BackgroundColor3 = Color3.new(1, 1, 1)
 game_logo.BackgroundTransparency = 1
@@ -343,7 +343,7 @@ uicorner_5.Parent = berry_avenue_image
 
 local brookhaven_status = Instance.new("TextLabel")
 brookhaven_status.Font = Enum.Font.SourceSansBold
-brookhaven_status.Text = "Status: No Operates"
+brookhaven_status.Text = "Status: Operates"
 brookhaven_status.TextColor3 = Color3.new(1, 1, 1)
 brookhaven_status.TextScaled = true
 brookhaven_status.TextSize = 14
@@ -365,7 +365,7 @@ uitext_size_constraint.Parent = brookhaven_status
 
 local brookhaven_status2 = Instance.new("TextLabel")
 brookhaven_status2.Font = Enum.Font.SourceSansBold
-brookhaven_status2.Text = "Last Updated: 1 Day Ago"
+brookhaven_status2.Text = "Last Updated: July 8"
 brookhaven_status2.TextColor3 = Color3.new(1, 1, 1)
 brookhaven_status2.TextScaled = true
 brookhaven_status2.TextSize = 14
@@ -548,7 +548,7 @@ uitext_size_constraint_8.MaxTextSize = 14
 uitext_size_constraint_8.Parent = redcliff_cityrPStatus2
 
 local brookhaven_image = Instance.new("ImageLabel")
-brookhaven_image.Image = "rbxassetid://13637139785"
+brookhaven_image.Image = "rbxassetid://13994818825"
 brookhaven_image.AnchorPoint = Vector2.new(0.5, 0.5)
 brookhaven_image.BackgroundColor3 = Color3.new(1, 1, 1)
 brookhaven_image.BackgroundTransparency = 1
